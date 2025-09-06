@@ -123,15 +123,13 @@ setsubmenuindex3(null);
 <Collapse isOpened={submenuindex2===3 ? true : false}>
 <ul className='w-full'>
 <li className='w-full'>
-    <Link to="/product">
+    <Link to="/Product">
   <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px]'><GoDotFill className='opacity-30'/>Product list</Button>
   </Link>
 </li>
 
 <li className='w-full'>
-  <Link to="product/upload">
-  <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px] '><GoDotFill className='opacity-30'/>Product Upload</Button>
-</Link>
+  <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px] ' onClick={()=>context.setisopenfullscreenpanel({open:true,model:'Add Product'})}><GoDotFill className='opacity-30'/>Product Upload</Button>
 </li>
 </ul>
 </Collapse>

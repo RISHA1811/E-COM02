@@ -1,6 +1,7 @@
 .body{
       font-family: "Montserrat", sans-serif !important;
-      background: #292727 !important;
+      background-color: rgb(196, 193, 193) !important;
+     
 }
 .swiper.swiper-button-prev .swiper.swiper-button-prev{
     font-size: 10px !important;
@@ -32,6 +33,25 @@
 
 }
 
+.MuiAppBar-colorPrimary{
+    background: #e6e6e6 !important;
+}
 
+/* .MuiButtonBase-root{
+    color: black !important;
+} */
+/* .MuiTypography-h6{
+    color:black !important;
+} */
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
 
+.MuiSelect-select {
+    background: #fff !important;
+}

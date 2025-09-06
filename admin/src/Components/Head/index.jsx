@@ -15,6 +15,7 @@ import { RiMenu3Fill } from "react-icons/ri";
 
 
 
+
   const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     right: -3,
@@ -60,12 +61,15 @@ const context = useContext(MyContext);
       </StyledBadge>
     </IconButton>
 
+
+
+{
+context.islogin === true ? 
 <div className="relative">
 <div className="rounded-full w-[35px] h-[35px] overflow-hidden cursor-pointer" onClick={handleClickmyacc}>
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh9zt6SEFH7r9AQ3GeOyGbOFPUMo74dLRlxw&s" className='w-full h-full object-cover'/>
 
 </div>
-
  <Menu
         anchorEl={anchormyacc}
         id="account-menu"
@@ -134,6 +138,15 @@ const context = useContext(MyContext);
 
 
 </div>
+
+:
+
+<Button className='btn-blue btn-sm !rounded-full'>Signin</Button>
+
+}
+
+
+
       </div>
     </header>
     </>

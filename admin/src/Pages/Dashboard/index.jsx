@@ -1,4 +1,4 @@
-import React, { useState,PureComponent } from 'react'
+import React, { useState,PureComponent, useContext } from 'react'
 import Dashboardbox from '../../Components/Dashboardboxes'
 import { PiHandWavingFill } from "react-icons/pi";
 import Button from '@mui/material/Button';
@@ -29,6 +29,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import { BiExport } from "react-icons/bi";
 import { IoMdAdd } from "react-icons/io";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid,Tooltip, Legend ,AreaChart, Area,} from 'recharts';
+import { MyContext } from '../../App';
 
 
 
@@ -223,6 +224,10 @@ const[chartdata2,setchartdata2]=useState([
 
 ]);
 
+
+const context = useContext(MyContext);
+
+
     const [currentPage, setCurrentPage] = useState(1);
 
   const pages = [1, 2, 3, 4, 5];
@@ -269,7 +274,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 </p>
 <br />
 
-<Button className='btn-blue  !uppercase flex gap-2 '><FaPlus/> Add Product</Button>
+<Button className='btn-blue  !uppercase flex gap-2 ' onClick={()=>context.setisopenfullscreenpanel({open:true,model:'Add Product'})}><FaPlus/> Add Product</Button>
 </div>
 
 <img src="/dashboard.jpeg" className='w-[300px]' />
@@ -327,7 +332,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
     <div className='col2 w-[28%] flex items-center gap-3  ml-auto'>
       <Button className='btn !bg-green-600 !text-[#fff] !font-[500] btn-sm flex gap-2'><BiExport className='!text-[20px]'/>Export</Button>
-      <Button className='btn-blue !bg-green-600 !text-[#fff] !font-[500] btn-sm flex gap-1'><IoMdAdd className='!text-[20px]'/>Add Product</Button>
+      <Button className='btn-blue !bg-green-600 !text-[#fff] !font-[500] btn-sm flex gap-1' onClick={()=>context.setisopenfullscreenpanel({open:true,model:'Add Product'})}><IoMdAdd className='!text-[20px]' />Add Product</Button>
 
     </div>
 </div>
@@ -365,71 +370,6 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
         </thead>
         <tbody>
        
-             <tr className="odd:bg-white  border-b dark:border-gray-300 border-gray-200">
-            <td className="px-6 pr-0  py-3">
-                <div className='w-[60px]'>
-                          <Checkbox {...label} size="small" />
-
-                    </div>
-            </td>
-            <td className="px-0 py-3">
-<div className="flex items-center gap-4">
-    <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
-                <Link to="/product/45656" >
-
-              <img src="https://ecme-react.themenate.net/img/products/product-4.jpg" class="w-full pl-2 group-hover:scale-105 transition-all "/>
-              </Link>
-
-    </div>
-    <div className="info w-[75%]">
-    <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
-        <Link to="/product/45656" >
-        The sandcastle began to melt under the waves force
-        </Link>
-        </h3>
-    <span className='text-[12px]'>Books</span>
-    </div>
-
-</div>
-</td>
-
-
-            <td className="px-6 py-3">
-                Electronics
-</td>
-
-          <td className="px-6 py-3">
-            Women
-</td>
-          <td className="px-6 py-3 flex flex-col gap-1">
-            <div className="oldpriice">
-                <h3 className='line-through font-[600] leading--3'>$450</h3>
-                <h3 className='font-[600] text-primary'>$350</h3>
-            </div>
-</td>
-
-          <td className="px-6 py-3 ">
-            <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
-            <Progressbar value={60} type="middle"/>
-</td>
-
-          <td className="px-6 py-3 ">
-            <div className="flex items-center gap-4">
-                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
-                    <MdEdit className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
-                </Button>
-                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
-                    <MdDelete className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
-                </Button>
-
-                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
-                    <IoMdEye className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
-                </Button>
-
-            </div>
-</td>
-
-           </tr>
             <tr className="odd:bg-white  border-b dark:border-gray-300 border-gray-200">
             <td className="px-6 pr-0  py-3">
                 <div className='w-[60px]'>
@@ -442,17 +382,17 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
                 <Link to="/product/45656" >
 
-              <img src="https://ecme-react.themenate.net/img/products/product-4.jpg" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/1.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
               </Link>
 
     </div>
     <div className="info w-[75%]">
     <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
         <Link to="/product/45656" >
-        The sandcastle began to melt under the waves force
+        Rustic Steel Computer
         </Link>
         </h3>
-    <span className='text-[12px]'>Books</span>
+    <span className='text-[12px]'>Games</span>
     </div>
 
 </div>
@@ -475,7 +415,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
           <td className="px-6 py-3 ">
             <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
-            <Progressbar value={60} type="middle"/>
+            <Progressbar value={10} type="danger"/>
 </td>
 
           <td className="px-6 py-3 ">
@@ -495,73 +435,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 </td>
 
            </tr>
-
-           <tr className="odd:bg-white  border-b dark:border-gray-300 border-gray-200">
-            <td className="px-6 pr-0  py-3">
-                <div className='w-[60px]'>
-                          <Checkbox {...label} size="small" />
-
-                    </div>
-            </td>
-            <td className="px-0 py-3">
-<div className="flex items-center gap-4">
-    <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
-                <Link to="/product/45656" >
-
-              <img src="https://ecme-react.themenate.net/img/products/product-4.jpg" class="w-full pl-2 group-hover:scale-105 transition-all "/>
-              </Link>
-
-    </div>
-    <div className="info w-[75%]">
-    <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
-        <Link to="/product/45656" >
-        The sandcastle began to melt under the waves force
-        </Link>
-        </h3>
-    <span className='text-[12px]'>Books</span>
-    </div>
-
-</div>
-</td>
-
-
-            <td className="px-6 py-3">
-                Electronics
-</td>
-
-          <td className="px-6 py-3">
-            Women
-</td>
-          <td className="px-6 py-3 flex flex-col gap-1">
-            <div className="oldpriice">
-                <h3 className='line-through font-[600] leading--3'>$450</h3>
-                <h3 className='font-[600] text-primary'>$350</h3>
-            </div>
-</td>
-
-          <td className="px-6 py-3 ">
-            <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
-            <Progressbar value={60} type="middle"/>
-</td>
-
-          <td className="px-6 py-3 ">
-            <div className="flex items-center gap-4">
-                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
-                    <MdEdit className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
-                </Button>
-                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
-                    <MdDelete className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
-                </Button>
-
-                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
-                    <IoMdEye className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
-                </Button>
-
-            </div>
-</td>
-
-           </tr>
-
+     
           <tr className="odd:bg-white  border-b dark:border-gray-300 border-gray-200">
             <td className="px-6 pr-0  py-3">
                 <div className='w-[60px]'>
@@ -574,17 +448,16 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
                 <Link to="/product/45656" >
 
-              <img src="https://ecme-react.themenate.net/img/products/product-4.jpg" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/11.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
               </Link>
 
     </div>
     <div className="info w-[75%]">
     <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
         <Link to="/product/45656" >
-        The sandcastle began to melt under the waves force
-        </Link>
+Licensed Concrete Cheese        </Link>
         </h3>
-    <span className='text-[12px]'>Books</span>
+    <span className='text-[12px]'>Electronics</span>
     </div>
 
 </div>
@@ -607,7 +480,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
           <td className="px-6 py-3 ">
             <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
-            <Progressbar value={60} type="middle"/>
+            <Progressbar value={80} type="success"/>
 </td>
 
           <td className="px-6 py-3 ">
@@ -641,15 +514,15 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
                 <Link to="/product/45656" >
 
-              <img src="https://ecme-react.themenate.net/img/products/product-4.jpg" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/15.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
               </Link>
 
     </div>
     <div className="info w-[75%]">
     <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
         <Link to="/product/45656" >
-        The sandcastle began to melt under the waves force
-        </Link>
+Electronic Rubber Table        
+</Link>
         </h3>
     <span className='text-[12px]'>Books</span>
     </div>
@@ -674,7 +547,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
           <td className="px-6 py-3 ">
             <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
-            <Progressbar value={60} type="middle"/>
+            <Progressbar value={20} type="danger"/>
 </td>
 
           <td className="px-6 py-3 ">
@@ -708,17 +581,16 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
                 <Link to="/product/45656" >
 
-              <img src="https://ecme-react.themenate.net/img/products/product-4.jpg" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/16.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
               </Link>
 
     </div>
     <div className="info w-[75%]">
     <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
         <Link to="/product/45656" >
-        The sandcastle began to melt under the waves force
-        </Link>
+Gorgeous Bronze Gloves        </Link>
         </h3>
-    <span className='text-[12px]'>Books</span>
+    <span className='text-[12px]'>Shoes</span>
     </div>
 
 </div>
@@ -741,7 +613,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
           <td className="px-6 py-3 ">
             <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
-            <Progressbar value={60} type="middle"/>
+            <Progressbar value={50} type="middle"/>
 </td>
 
           <td className="px-6 py-3 ">
@@ -775,17 +647,16 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
                 <Link to="/product/45656" >
 
-              <img src="https://ecme-react.themenate.net/img/products/product-4.jpg" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/6.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
               </Link>
 
     </div>
     <div className="info w-[75%]">
     <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
         <Link to="/product/45656" >
-        The sandcastle began to melt under the waves force
-        </Link>
+Practical Steel Keyboard        </Link>
         </h3>
-    <span className='text-[12px]'>Books</span>
+    <span className='text-[12px]'>Kids</span>
     </div>
 
 </div>
@@ -808,7 +679,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
           <td className="px-6 py-3 ">
             <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
-            <Progressbar value={60} type="middle"/>
+            <Progressbar value={90} type="success"/>
 </td>
 
           <td className="px-6 py-3 ">
@@ -841,7 +712,270 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
                 <Link to="/product/45656" >
 
-              <img src="https://ecme-react.themenate.net/img/products/product-4.jpg" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/8.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              </Link>
+
+    </div>
+    <div className="info w-[75%]">
+    <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
+        <Link to="/product/45656" >
+Sleek Frozen Ball        </Link>
+        </h3>
+    <span className='text-[12px]'>Electronics</span>
+    </div>
+
+</div>
+</td>
+
+
+            <td className="px-6 py-3">
+                Electronics
+</td>
+
+          <td className="px-6 py-3">
+            Women
+</td>
+          <td className="px-6 py-3 flex flex-col gap-1">
+            <div className="oldpriice">
+                <h3 className='line-through font-[600] leading--3'>$450</h3>
+                <h3 className='font-[600] text-primary'>$350</h3>
+            </div>
+</td>
+
+          <td className="px-6 py-3 ">
+            <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
+            <Progressbar value={100} type="success"/>
+</td>
+
+          <td className="px-6 py-3 ">
+            <div className="flex items-center gap-4">
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <MdEdit className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <MdDelete className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <IoMdEye className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+
+            </div>
+</td>
+
+           </tr>
+
+
+                <tr className="odd:bg-white  border-b dark:border-gray-300 border-gray-200">
+            <td className="px-6 pr-0  py-3">
+                <div className='w-[60px]'>
+                          <Checkbox {...label} size="small" />
+
+                    </div>
+            </td>
+            <td className="px-0 py-3">
+<div className="flex items-center gap-4">
+    <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
+                <Link to="/product/45656" >
+
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/6.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              </Link>
+              
+
+    </div>
+    <div className="info w-[75%]">
+    <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
+        <Link to="/product/45656" >
+Practical Steel Keyboard        </Link>
+        </h3>
+    <span className='text-[12px]'>Kids</span>
+    </div>
+
+</div>
+</td>
+
+
+            <td className="px-6 py-3">
+                Electronics
+</td>
+
+          <td className="px-6 py-3">
+            Women
+</td>
+          <td className="px-6 py-3 flex flex-col gap-1">
+            <div className="oldpriice">
+                <h3 className='line-through font-[600] leading--3'>$450</h3>
+                <h3 className='font-[600] text-primary'>$350</h3>
+            </div>
+</td>
+
+          <td className="px-6 py-3 ">
+            <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
+            <Progressbar value={90} type="success"/>
+</td>
+
+          <td className="px-6 py-3 ">
+            <div className="flex items-center gap-4">
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <MdEdit className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <MdDelete className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <IoMdEye className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+
+            </div>
+</td>
+
+           </tr>
+
+        <tr className="odd:bg-white  border-b dark:border-gray-300 border-gray-200">
+            <td className="px-6 pr-0  py-3">
+                <div className='w-[60px]'>
+                          <Checkbox {...label} size="small" />
+
+                    </div>
+            </td>
+            <td className="px-0 py-3">
+<div className="flex items-center gap-4">
+    <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
+                <Link to="/product/45656" >
+
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/8.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              </Link>
+
+    </div>
+    <div className="info w-[75%]">
+    <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
+        <Link to="/product/45656" >
+Sleek Frozen Ball        </Link>
+        </h3>
+    <span className='text-[12px]'>Electronics</span>
+    </div>
+
+</div>
+</td>
+
+
+            <td className="px-6 py-3">
+                Electronics
+</td>
+
+          <td className="px-6 py-3">
+            Women
+</td>
+          <td className="px-6 py-3 flex flex-col gap-1">
+            <div className="oldpriice">
+                <h3 className='line-through font-[600] leading--3'>$450</h3>
+                <h3 className='font-[600] text-primary'>$350</h3>
+            </div>
+</td>
+
+          <td className="px-6 py-3 ">
+            <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
+            <Progressbar value={100} type="success"/>
+</td>
+
+          <td className="px-6 py-3 ">
+            <div className="flex items-center gap-4">
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <MdEdit className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <MdDelete className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <IoMdEye className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+
+            </div>
+</td>
+
+           </tr>
+
+
+               <tr className="odd:bg-white  border-b dark:border-gray-300 border-gray-200">
+            <td className="px-6 pr-0  py-3">
+                <div className='w-[60px]'>
+                          <Checkbox {...label} size="small" />
+
+                    </div>
+            </td>
+            <td className="px-0 py-3">
+<div className="flex items-center gap-4">
+    <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
+                <Link to="/product/45656" >
+
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/9.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
+              </Link>
+
+    </div>
+    <div className="info w-[75%]">
+    <h3 className='font-[600] text-[14px] leading-4 hover:text-primary'>
+        <Link to="/product/45656" >
+Ergonomic Frozen Pants        </Link>
+        </h3>
+    <span className='text-[12px]'>Books</span>
+    </div>
+
+</div>
+</td>
+
+
+            <td className="px-6 py-3">
+                Electronics
+</td>
+
+          <td className="px-6 py-3">
+            Women
+</td>
+          <td className="px-6 py-3 flex flex-col gap-1">
+            <div className="oldpriice">
+                <h3 className='line-through font-[600] leading--3'>$450</h3>
+                <h3 className='font-[600] text-primary'>$350</h3>
+            </div>
+</td>
+
+          <td className="px-6 py-3 ">
+            <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
+            <Progressbar value={70} type="middle"/>
+</td>
+
+          <td className="px-6 py-3 ">
+            <div className="flex items-center gap-4">
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <MdEdit className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <MdDelete className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+
+                <Button className='!w-[35px] !h-[35px] !min-w-[35px]  hover:!bg-[#ccc] !text-[#ccc] !rounded-full !bg-[#f1f1f1]'>
+                    <IoMdEye className='text-[rgba(0,0,0,0.8)] text-[20px]'/>
+                </Button>
+
+            </div>
+</td>
+
+           </tr>
+
+               <tr className="odd:bg-white  border-b dark:border-gray-300 border-gray-200">
+            <td className="px-6 pr-0  py-3">
+                <div className='w-[60px]'>
+                          <Checkbox {...label} size="small" />
+
+                    </div>
+            </td>
+            <td className="px-0 py-3">
+<div className="flex items-center gap-4">
+    <div className="img w-[65px] rounded-md overflow-hidden h-[65px] group">
+                <Link to="/product/45656" >
+
+              <img src="https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/10.webp" class="w-full pl-2 group-hover:scale-105 transition-all "/>
               </Link>
 
     </div>
@@ -874,7 +1008,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
           <td className="px-6 py-3 ">
             <p className='text-[14px] w-[100px]'><span className='font-[600]'>234</span> Sale</p>
-            <Progressbar value={60} type="middle"/>
+            <Progressbar value={80} type="success"/>
 </td>
 
           <td className="px-6 py-3 ">

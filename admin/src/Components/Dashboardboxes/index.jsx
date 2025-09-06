@@ -20,41 +20,40 @@ const Dashboardbox = () => {
             className="dashboardboxesslider"
           >
             <SwiperSlide>
-                <div className="box p-5 cursor-pointer rounded-md border border-[rgba(0,0,0,0.8)] flex items-center gap-4 hover:bg-[#fafafa]">
-                  <FiGift className='text-[40px] text-[#3872fa]'/>
-                    <div className="info w-[70%] ">
+                <div className="box p-5 cursor-pointer rounded-md  flex items-center gap-4 bg-[#3872fa]">
+                  <FiGift className='text-[40px] text-[#fafafa]'/>
+                    <div className="info w-[70%] text-[#fafafa] ">
                         <h4>New Orders</h4>
                         <b>1,390</b>
                     </div>
-                    <IoStatsChartSharp className='text-[40px] text-[#3872fa]'/>
+                    <IoStatsChartSharp className='text-[40px] text-[#fafafa]'/>
                 </div>
               </SwiperSlide>
 
               <SwiperSlide>
-                <div className="box p-5 cursor-pointer rounded-md border border-[rgba(0,0,0,0.8)] flex items-center gap-4 hover:bg-[#fafafa]">
-                  <LuChartPie className='text-[40px] text-[#10b981]'/>
-                    <div className="info w-[70%] ">
+                <div className="box p-5 cursor-pointer rounded-md  flex items-center gap-4 bg-[#10b981] hover:scale-100">
+                  <LuChartPie className='text-[40px] text-[#fafafa]'/>
+                    <div className="info w-[70%] text-[#fafafa] ">
                         <h4>Sales</h4>
                         <b>$57,890</b>
 
                     </div>
-                    <IoStatsChartSharp className='text-[40px] text-[#10b981]'/>
+                    <IoStatsChartSharp className='text-[40px] text-[#fafafa]'/>
                 </div>
               </SwiperSlide>
 
 
 
               <SwiperSlide>
-                <div className="box p-5 cursor-pointer rounded-md border border-[rgba(0,0,0,0.8)] flex items-center gap-4 hover:bg-[#fafafa]">
-                  <AiOutlineBank className='text-[40px] text-[#7928ca]'/>
-                    <div className="info w-[70%] ">
+                <div className="box p-5 cursor-pointer rounded-md  flex items-center gap-4 bg-[#7928ca]">
+                  <AiOutlineBank className='text-[40px] text-[#fafafa]'/>
+                    <div className="info w-[70%] text-[#fafafa]">
                         <h4>Revenue</h4>
                         <b>$12,390</b>
                     </div>
-                    <IoStatsChartSharp className='text-[40px] text-[#7928ca]'/>
+                    <IoStatsChartSharp className='text-[40px] text-[#fafafa]'/>
                 </div>
               </SwiperSlide>
-
 
 
              

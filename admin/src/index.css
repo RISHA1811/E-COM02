@@ -8,3 +8,14 @@
 .ReactCollapse--collapse {
   transition: height 300ms;
 }
+.buttonalign button{
+
+  border:2px solid rgba(0,0,0,0.2);
+}
+a.active button:hover{
+  background: #e3e3e3 !important;
+}
+.btn-lg{
+    font-size: 18px !important;
+    padding: 7px 20px !important;
+}
