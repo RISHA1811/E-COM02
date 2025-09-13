@@ -21,6 +21,17 @@ import Typography from '@mui/material/Typography';
 import { IoMdClose } from "react-icons/io";
 import Slide from '@mui/material/Slide';
 import Button from '@mui/material/Button';
+import Homesliderbanner from './Pages/Homesliderbanner/index.jsx';
+import Addhomeslide from './Pages/Homesliderbanner/addhomeslide.jsx';
+import Categorylist from './Pages/Category/index.jsx';
+import Addcategory from './Pages/Category/addcategory.jsx';
+import Subcatlist from './Pages/Category/subcatlist.jsx';
+import Addsubcatlist from './Pages/Category/addsubcat.jsx';
+import User from './Pages/Users/index.jsx';
+import Order from './Pages/Order/index.jsx';
+import Forgotpassword from './Pages/Forgotpassword/index.jsx';
+import Verifyaccount from './Pages/Verifyaccount/index.jsx';
+import Changepassword from './Pages/Changepassword/index.jsx';
 
 
 
@@ -82,6 +93,10 @@ setisopenfullscreenpanel
         </>
       ),
     },
+
+
+
+
     {
       path:"/Login",
       exact:true,
@@ -92,13 +107,17 @@ setisopenfullscreenpanel
       ),
     },
 
+
+
+
+
       {
       path:"/Signup",
       exact:true,
       element: (
-        
+        <>
         <Signup/>
-        
+        </>
       ),
     },
 
@@ -124,7 +143,171 @@ setisopenfullscreenpanel
         </>
       ),
     },
+
+     {
+      path:"/Homeslider/list",
+      exact:true,
+      element: (
+        <>
+        <section className="main">
+          <Head/>
+          <div className="contentmain flex">
+            <div className={` overflow-hidden sidebarwrapper ${issidebaropen===true ? 'w-[18%]': 'w-[0px] opacity-0'}  transition-all`}>
+              <Sidebar/>
+            </div>
+            <div className={`contentright py-4 px-5 ${issidebaropen===false ? 'w-[100%]': 'w-[82%]'} transition-all`}>
+              <Homesliderbanner/>
+            </div>
+          </div>
+        </section>
+        </>
+      ),
+    },
+
+
+
+  {
+      path:"/Forgotpassword",
+      exact:true,
+      element: (
+        <>
+        <section className="main">
+          
+          <div className="contentmain flex">
+            <div className={` overflow-hidden sidebarwrapper ${issidebaropen===true ? 'w-[18%]': 'w-[0px] opacity-0'}  transition-all`}>
+              <Sidebar/>
+            </div>
+            <div className={`contentright py-4 px-5 ${issidebaropen===false ? 'w-[100%]': 'w-[82%]'} transition-all`}>
+              <Forgotpassword/>
+            </div>
+          </div>
+        </section>
+        </>
+      ),
+    },
+ {
+      path:"/Verifyaccount",
+      exact:true,
+      element: (
+        <>
+        <section className="main">
+          
+          <div className="contentmain flex">
+            <div className={` overflow-hidden sidebarwrapper ${issidebaropen===true ? 'w-[18%]': 'w-[0px] opacity-0'}  transition-all`}>
+              <Sidebar/>
+            </div>
+            <div className={`contentright py-4 px-5 ${issidebaropen===false ? 'w-[100%]': 'w-[82%]'} transition-all`}>
+              <Verifyaccount/>
+            </div>
+          </div>
+        </section>
+        </>
+      ),
+    },
+
+
+ {
+      path:"/Changepassword",
+      exact:true,
+      element: (
+        <>
+        <section className="main">
+           
+          <div className="contentmain flex">
+            <div className={` overflow-hidden sidebarwrapper ${issidebaropen===true ? 'w-[18%]': 'w-[0px] opacity-0'}  transition-all`}>
+              <Sidebar/>
+            </div>
+            <div className={`contentright py-4 px-5 ${issidebaropen===false ? 'w-[100%]': 'w-[82%]'} transition-all`}>
+              <Changepassword/>
+            </div>
+          </div>
+        </section>
+        </>
+      ),
+    },
+
+
+      {
+      path:"/Category/list",
+      exact:true,
+      element: (
+        <>
+        <section className="main">
+          <Head/>
+          <div className="contentmain flex">
+            <div className={` overflow-hidden sidebarwrapper ${issidebaropen===true ? 'w-[18%]': 'w-[0px] opacity-0'}  transition-all`}>
+              <Sidebar/>
+            </div>
+            <div className={`contentright py-4 px-5 ${issidebaropen===false ? 'w-[100%]': 'w-[82%]'} transition-all`}>
+              <Categorylist/>
+            </div>
+          </div>
+        </section>
+        </>
+      ),
+    },
+
+       {
+      path:"/SubCategory/list",
+      exact:true,
+      element: (
+        <>
+        <section className="main">
+          <Head/>
+          <div className="contentmain flex">
+            <div className={` overflow-hidden sidebarwrapper ${issidebaropen===true ? 'w-[18%]': 'w-[0px] opacity-0'}  transition-all`}>
+              <Sidebar/>
+            </div>
+            <div className={`contentright py-4 px-5 ${issidebaropen===false ? 'w-[100%]': 'w-[82%]'} transition-all`}>
+              <Subcatlist/>
+            </div>
+          </div>
+        </section>
+        </>
+      ),
+    },
+
+        {
+      path:"/user",
+      exact:true,
+      element: (
+        <>
+        <section className="main">
+          <Head/>
+          <div className="contentmain flex">
+            <div className={` overflow-hidden sidebarwrapper ${issidebaropen===true ? 'w-[18%]': 'w-[0px] opacity-0'}  transition-all`}>
+              <Sidebar/>
+            </div>
+            <div className={`contentright py-4 px-5 ${issidebaropen===false ? 'w-[100%]': 'w-[82%]'} transition-all`}>
+              <User/>
+            </div>
+          </div>
+        </section>
+        </>
+      ),
+    },
     
+
+         {
+      path:"/order",
+      exact:true,
+      element: (
+        <>
+        <section className="main">
+          <Head/>
+          <div className="contentmain flex">
+            <div className={` overflow-hidden sidebarwrapper ${issidebaropen===true ? 'w-[18%]': 'w-[0px] opacity-0'}  transition-all`}>
+              <Sidebar/>
+            </div>
+            <div className={`contentright py-4 px-5 ${issidebaropen===false ? 'w-[100%]': 'w-[82%]'} transition-all`}>
+              <Order/>
+            </div>
+          </div>
+        </section>
+        </>
+      ),
+    },
+
   ]);
 
 
@@ -168,6 +351,21 @@ setisopenfullscreenpanel
        {
         isopenfullscreenpanel?.model === "Add Product" && <Addproduct/>
        }
+
+       {
+        isopenfullscreenpanel?.model === "Add Slides" && <Addhomeslide/>
+       }
+
+ {
+        isopenfullscreenpanel?.model === "Add New Category" && <Addcategory/>
+       }
+
+        {
+        isopenfullscreenpanel?.model === "Add New Sub Category" && <Addsubcatlist/>
+       }
+
+
+
       </Dialog>
 
 

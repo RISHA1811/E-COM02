@@ -21,14 +21,13 @@ const Signup = () => {
             </Link>
 
             <div className="flex items-center gap-4 buttonalign">
-                <NavLink to="/Login" className={({ isActive }) => isActive ? "active" : ""}>
-                <Button className='!rounded-full !text-[rgba(0,0,0,0.8)] !px-5 flex gap-1 '><FiLogIn className='text-[15px]'/>Login</Button>
-                </NavLink>
-
+                <Button className='!rounded-full !text-[rgba(0,0,0,0.8)] !px-5 flex gap-1 '><FiLogIn className='text-[15px]'/>                <Link to="/Login">
+Login </Link>
+</Button>
             </div>
         </header>
 
-        <img src="https://fullstack-ecommerce-add-admin.netlify.app/static/media/pattern.df9a7a28fc13484d1013.webp" className='w-full fixed top-0 left-0 opacity-5' />
+        {/* <img src="https://fullstack-ecommerce-add-admin.netlify.app/static/media/pattern.df9a7a28fc13484d1013.webp" className='w-full fixed top-0 left-0 opacity-5' /> */}
 
         <div className="loginbox py-10 ">
         <div className="container">
@@ -92,7 +91,7 @@ const Signup = () => {
             <FcGoogle className='text-[30px]'/> Signup with Google
           </Button>
           <Button className='flex gap-3 !bg-lg text-[20px] !bg-gray-200 w-full !mt-2  btn-sm  !text-black'>
-            <FaApple className='text-[30px]'/> Signup with Apple
+            <FaApple className='text-[30px]'/> Signup with Safari
           </Button>
         </div>
 

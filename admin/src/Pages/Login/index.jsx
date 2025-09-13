@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button'
 import React, { useContext, useState } from 'react'
-import { Link,NavLink } from 'react-router-dom'
+import { Link , NavLink } from 'react-router-dom'
 import { FiLogIn } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa6";
 import TextField from '@mui/material/TextField';
@@ -31,30 +31,20 @@ const Login = () => {
 
 
             <div className="flex items-center gap-4 buttonalign">
-                <Link to="/Signup" className='link transition-all'>
-                <Button className='!rounded-full !text-[rgba(0,0,0,0.8)] !px-5 flex gap-1 '><FiLogIn className='text-[15px]'/>Login</Button>
-                </Link>
-
-             
-<NavLink 
-  to="/Signup" 
-  className={({ isActive }) => 
-    isActive 
-      ? "active" 
-      : ""
-  }
->                 
-  <Button className="rounded-full text-gray-800 px-5 flex items-center gap-1">
-    <FaRegUser className="text-[15px]" />
-    SignUp
-  </Button>                 
+ <NavLink 
+        to="/Signup" 
+        className={({ isActive }) => (isActive ? "active-link" : "normal-link")}
+      >     <Button className='!rounded-full !text-[rgba(0,0,0,0.8)] !px-5 flex gap-1 '><FiLogIn className='text-[15px]'/>Signup</Button>
 </NavLink>
+             
+
+                
 
             </div>
         </header>
 
 
-<img src="https://fullstack-ecommerce-add-admin.netlify.app/static/media/pattern.df9a7a28fc13484d1013.webp" className='w-full fixed top-0 left-0 opacity-5' />
+{/* <img src="https://fullstack-ecommerce-add-admin.netlify.app/static/media/pattern.df9a7a28fc13484d1013.webp" className='w-full fixed top-0 left-0 opacity-5' /> */}
 
 
 
@@ -87,7 +77,7 @@ const Login = () => {
 
 
 <div className='text-left mt-2 px-8'>
-                    <a className="link text-left cursor-pointer text-[14px] font-[600]  " ><Link to="/forgotpassword">Forgot Password ?</Link></a>
+                  <Link to="/Forgotpassword">  <p className="link text-left cursor-pointer text-[14px] font-[600]  cursor-pointer" > Forgot Password ?</p></Link>
 </div>
 
 
@@ -96,15 +86,15 @@ const Login = () => {
                       <Button className='btn-blue !btn-lg  w-[100%] !text-[18px]   !text-[#fff] '>Sign in </Button>
                     </div>
 
-                    <p className='px-8' >
-                      Not Registered? <Link className='link font-[500] text-[14px] text-primary ' to="/register">Login</Link>
-                    </p>
+                    {/* <p className='px-8' >
+                      Not Registered? <Link className='link font-[500] text-[14px] text-primary ' to="/Login">Login</Link>
+                    </p> */}
 
 
                     <p className='text-center mt-3 font-[400] w-full'><span className='opacity-20 text-[20px]'>----------</span>Or continue with social accounts<span className='opacity-20 text-[20px]'>----------</span></p>
 <div className="icons flex items-center justify-between gap-3 px-8">
 <Button className='flex gap-3 text-[20px] !bg-gray-200 w-full !mt-2  btn-sm  !text-black'><FcGoogle className='text-[30px]'/> Login with Google</Button>
-<Button className='flex gap-3 !bg-lg text-[20px] !bg-gray-200 w-full !mt-2  btn-sm  !text-black'><FaApple className='text-[30px]'/> Login with Google</Button>
+<Button className='flex gap-3 !bg-lg text-[20px] !bg-gray-200 w-full !mt-2  btn-sm  !text-black'><FaApple className='text-[30px]'/> Login with Safari</Button>
 
 </div>
 

@@ -12,6 +12,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import {MyContext} from "../../App";
 import { RiMenu2Fill } from "react-icons/ri";
 import { RiMenu3Fill } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 
 
 
@@ -140,9 +141,9 @@ context.islogin === true ?
 </div>
 
 :
-
+<Link to="/Signup">
 <Button className='btn-blue btn-sm !rounded-full'>Signin</Button>
-
+</Link>
 }
 
 

@@ -91,11 +91,13 @@ setsubmenuindex3(null);
 <Collapse isOpened={submenuindex===1 ? true : false}>
 <ul className='w-full'>
 <li className='w-full'>
+  <Link to="/Homeslider/list">
   <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px]'><GoDotFill className='opacity-30'/>Home banner slide list</Button>
+</Link>
 </li>
 
 <li className='w-full'>
-  <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px] '><GoDotFill className='opacity-30'/>Home slide list</Button>
+  <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px] '  onClick={()=>context.setisopenfullscreenpanel({open:true,model:'Add Slides'})}><GoDotFill className='opacity-30'/>Home slide list</Button>
 </li>
 </ul>
 </Collapse>
@@ -141,26 +143,38 @@ setsubmenuindex3(null);
 
 
      <li >
-    <Link to="category">
+    
     <Button className='w-full !uppercase !justify-start flex  gap-3 !text-[14px] !text-[rgba(0,0,0,0.8)] !font-[500] items-center !py-2 hover:!bg-[#f1f1f1]' onClick={()=>isopensubmenu3(4)}> <FaRegImage  className='text-[18px] '/> <span>Category </span> <span className='ml-auto block w-[30px] h-[30px] flex items-center justify-center' > <FaAngleDown className={`transition-all ${submenuindex3===4 ? 'rotate-180' : ' '}`}/></span>
 
     {/* // <span className='ml-auto block w-[30px] h-[30px] flex items-center justify-center' > <FaAngleUp/></span> */}
     </Button>
-    </Link>
+    
 
 <Collapse isOpened={submenuindex3===4 ? true : false}>
 <ul className='w-full'>
 <li className='w-full'>
-  <Link to="category/add">
+    <Link to="/Category/list">
   <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px]'><GoDotFill className='opacity-30'/>Category list</Button>
-</Link>
+  </Link>
 </li>
 
 <li className='w-full'>
-  <Link to="category/subcat/add">
-  <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px] '><GoDotFill className='opacity-30'/>Add  Category</Button>
-</Link>
+  <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px] ' onClick={()=>context.setisopenfullscreenpanel({open:true,model:'Add New Category'}) }><GoDotFill className='opacity-30'/>Add new Category</Button>
 </li>
+<li className='w-full'>
+      <Link to="/SubCategory/list">
+  <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px] ' ><GoDotFill className='opacity-30'/> Sub Category List</Button>
+  </Link>
+
+</li>
+
+<li className='w-full'>
+  <Button className='!w-full !p-3 !text-[rgba(0,0,0,0.7)] !font-[500] !uppercase !justify-start gap-2 !text-[13px] ' onClick={()=>context.setisopenfullscreenpanel({open:true,model:'Add New Sub Category'})}><GoDotFill className='opacity-30'/>Add Sub Category</Button>
+</li>
+
+
+
+
 </ul>
 </Collapse>
 
@@ -168,8 +182,9 @@ setsubmenuindex3(null);
   </li>
 
    <li >
-    
+    <Link to="/order">
     <Button className='w-full !uppercase !justify-start flex  gap-3 !text-[14px] !text-[rgba(0,0,0,0.8)] !font-[500] items-center !py-2 hover:!bg-[#f1f1f1]'> <IoBagCheckOutline className='text-[20px] '/> <span>Orders </span></Button>
+  </Link>
   </li>
   <li >
     <Button className='w-full !uppercase !justify-start flex  gap-3 !text-[14px] !text-[rgba(0,0,0,0.8)] !font-[500] items-center !py-2 hover:!bg-[#f1f1f1]'> <IoIosLogOut className='text-[20px] '/> <span>Logout </span></Button>
