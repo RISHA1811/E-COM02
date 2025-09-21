@@ -10,8 +10,8 @@ import Button from '@mui/material/Button';
  const homeslider = () => {
   return (
     <>
-    <div className='homeslider py-4'>
-        <div className='container'>
+    <div className='homeslider py-4  '>
+        <div className='container '>
      <Swiper 
      
      loop={true}
@@ -22,7 +22,7 @@ import Button from '@mui/material/Button';
         }}
      navigation={true} modules={[Navigation,Autoplay]} className="homeslider   !overflow-hidden" >
         <SwiperSlide>
-            <div className='item   w-full  overflow-hidden relative'>
+            <div className='item   w-full rounded-md   overflow-hidden relative'>
             <img src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/modules/cz_imageslider/views/img/sample-1.jpg" alt="Banner slide" className='w-full cursor-pointer'/>
 
              <div className="info absolute top-0 -right-[100%] w-[50%] z-50 p-8 h-[100%] flex items-center flex-col justify-center transition-all opacity-0 ">
@@ -42,7 +42,7 @@ import Button from '@mui/material/Button';
             </div>
         </SwiperSlide>
          <SwiperSlide>
-            <div className='item   w-full  overflow-hidden'>
+            <div className='item   w-full rounded-md  overflow-hidden'>
             <img src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/modules/cz_imageslider/views/img/sample-2.jpg" alt="Banner slide" className='w-full cursor-pointer'/>
 
              <div className="info absolute top-0 -right-[100%] w-[50%] z-50 p-8 h-[100%] flex items-center flex-col justify-center transition-all opacity-0 duration-700">

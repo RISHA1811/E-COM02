@@ -14,14 +14,14 @@ import { Mycontext } from '../../App';
  const  context =useContext(Mycontext);
 
   return (
-    <div className="productitems1 rounded-lg overflow-hidden border-1 border-[#e0e0e0] bg-gray-100 shadow-md h-[400px] flex items-center text-left">
+    <div className="productitems1   rounded-lg overflow-hidden border-1 border-[#e0e0e0] bg-gray-100 shadow-md h-[400px] flex items-center text-left ">
       <div className="  imagewrapper w-[25%] h-[250px] overflow-hidden rounded-md relative  group text-left">
               <img src="https://api.spicezgold.com/download/file_1734527074321_ksc-khatushyam-collection-red-pu-for-women-handheld-bag-product-images-rvvxdnkjfy-0-202405290001.webp" class="w-full h-[250px] pl-2"/>
               
       <span className='discount flex items-center absolute top-[10px] left-[10px] z-50 text-primary rounded-md font-[900] bg-white py-0.5 px-2'>20%</span>
 
 
-<div className="action absolute top-[10px] right-[0px]  z-50 flex items-center   flex-col  w-[50px] transition-all  text-left">
+<div className="action absolute top-[10px]  right-[0px]  z-50 flex items-center   flex-col  w-[50px] transition-all  text-left">
              <Tooltip title="Wishlist" placement="bottom-start">
              <Button>
               < FaRegHeart className=' !w-[33px] !h-[33px] !min-w-[35px] rounded-full bg-white py-0.5 px-2 hover:bg-primary hover:text-white '/> </Button>

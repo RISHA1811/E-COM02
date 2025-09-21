@@ -118,7 +118,7 @@ const [itemview,setitemview] = useState('grid');
               </div>
 
             </div>
-            <div className={`grid ${itemview==='grid' ? 'grid-cols-4  md:grid-cols-4' : 'grid-cols-4  md:grid-cols-1' }  gap-4`}>
+            <div className={`grid ${itemview==='grid' ? 'grid-cols-4  md:grid-cols-4' : 'grid-cols-4  md:grid-cols-1' }   gap-4`}>
               {
                 itemview ==='grid' ?
                 <>

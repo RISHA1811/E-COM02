@@ -29,6 +29,7 @@ import { AiOutlineYoutube } from "react-icons/ai";
 import { FaPinterestP } from "react-icons/fa";
 import Homebannerv2 from '../../components/Homebannerv2';
 import Bannerboxv2 from '../../components/bannerboxv2';
+import Newslider from '../../components/Newslider/newslider';
 
 
 
@@ -51,14 +52,15 @@ import Bannerboxv2 from '../../components/bannerboxv2';
         <>
         <section className='py-6'>
           <div className="container flex ">
-            <div className="part1 w-[70%]">
-        <Homeslider/>
+            <div className="part1 w-full ">
+        {/* <Homeslider/> */}
+        <Newslider/>
         </div>
-                    <div className="part2 w-[30%] pl-5 flex items-center justify-between flex-col ">
+                    {/* <div className="part2 w-[30%] pl-5  flex items-center justify-between flex-col ">
                       <Bannerboxv2/>
                       
 
-      </div>
+      </div> */}
         </div>
         </section>
 

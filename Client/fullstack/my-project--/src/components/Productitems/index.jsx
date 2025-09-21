@@ -13,7 +13,7 @@ import { Mycontext } from '../../App';
      const  context =useContext(Mycontext);
 
   return (
-    <div className="productitems1 rounded-lg overflow-hidden border-1 border-[#e0e0e0] bg-gray-100 shadow-md h-[400px]">
+    <div className="productitems1  rounded-lg overflow-hidden border-1 border-[#e0e0e0] bg-gray-100 shadow-md h-[400px]">
       <div className="  imagewrapper w-full h-[250px] overflow-hidden rounded-md relative  group "><Link to="/Product/:id">
               <img src="https://api.spicezgold.com/download/file_1734527074321_ksc-khatushyam-collection-red-pu-for-women-handheld-bag-product-images-rvvxdnkjfy-0-202405290001.webp" class="w-full h-[250px]"/>
               </Link>

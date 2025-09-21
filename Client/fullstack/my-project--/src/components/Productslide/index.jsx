@@ -8,7 +8,7 @@ import Productitems from '../Productitems';
 
  const Productslide = (props) => {
   return (
-    <div className='productslider py-3'>
+    <div className='productslider p-6 mt-1'>
 
          <Swiper
                 slidesPerView={props.items}
@@ -16,7 +16,7 @@ import Productitems from '../Productitems';
                  navigation={true}
                 modules={[Navigation]}
                 
-                className="mySwiper"
+                className="mySwiper "
               >
 
                 <SwiperSlide>
