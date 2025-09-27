@@ -33,6 +33,15 @@ import Mylist from './pages/Mylist';
 import Myorder from './pages/Myorder';
 
 
+// const alertBox = (msg, type) =>{
+//   if(type==="success"){
+//     toast.success(msg)
+//   }
+//   if(type==="error"){
+//     toast.error(msg)
+//   }
+// }
+
 const Mycontext = createContext();
 
 
@@ -45,7 +54,7 @@ const [open, setOpen] = useState(false);
 const [closecartpanel,setclosecartpanel] =useState(false);
 
 const[islogin , setislogin] =useState(false);
-
+const apiUrl = import.meta.env.VITE_API_URL;
 
   
 const cartclose = () => {
@@ -77,7 +86,7 @@ togglecartpanel,
 opencartpanel,
 openalertbox,
 islogin,
-setislogin
+setislogin,
   };
 
   return (

@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Otpbox from '../../components/Otpbox'
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { postData } from '../../utils/api';
+import { Mycontext } from '../../App';
 
 const verify = () => {
   const [otp,setOtp] = useState("");
@@ -9,10 +11,27 @@ const verify = () => {
     setOtp(value);
   };
 
-//   const verifyotp=(e)=>{
-// e.preventDefault();
-// alert(otp);
-//   }
+
+
+
+const history = useNavigate();
+const context = useContext(Mycontext)
+  const verifyotp=(e)=>{
+e.preventDefault();
+postData("/api/user/verifyEmail",{
+  email:localStorage.getItem("userEmail"),
+  otp:opt
+}).then((res)=>{
+ if(res?.error==false){
+context.openalertbox("success", res?.message);
+localStorage.removeItem("userEmail")
+history("/login")
+ }else{
+context.openalertbox("error", res?.message);
+ }
+})
+
+  }
 
   return (
     <>
@@ -23,7 +42,7 @@ const verify = () => {
                 <img src="/verify2.jpeg" width="80px"/>
               </div>
                 <h3 className='text-center text-[18px] text-black font-[600] mt-4 mb-3 link transition-all'>Verify OTP</h3>
-                <p className='mb-2'> OTP send to <span className='text-primary font-bold '>rishabhjha1811@gmail.com</span></p>
+                <p className='mb-2'> OTP send to <span className='text-primary font-bold '>{localStorage.getItem("userEmail")}</span></p>
 
 
 {/* onSubmit={verifyotp} this will be with form tag */}

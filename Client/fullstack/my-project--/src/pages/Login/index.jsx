@@ -6,40 +6,129 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Mycontext } from '../../App';
+import CircularProgress from '@mui/material/CircularProgress';
+import { postData } from '../../utils/api';
 
 
 const Login = () => {
   
-  const context= useContext(Mycontext);
   const[ispasswordshow,setispasswordshow] = useState(false);
-const[formfields,setformfields] = useState({
-  email: '',
-  password: ''
-});
-
-const history = useNavigate();
-
-  const forgotpassword = ()=>{
+     const[isLoading, setisLoading] = useState(false)
+      // use state to use api
+      const [formFields, setformFields] = useState({
+        email:"",
+        password:""
+      })
     
+    
+    const context = useContext(Mycontext);
+    const history = useNavigate();
+    
+
+ const forgotpassword = ()=>{
+context.openalertbox("success","OTP Send");    
 history("/verify");
-context.openalertbox("success","OTP Send");
-    
-
-
   }
+
+
+    const onchangeInput = (e)=>{
+      const {name, value}= e.target;
+    setformFields(()=> {
+      return {
+        ...formFields,
+        [name]:value
+      }
+    })
+    }
+    
+    
+    const validevalue = Object.values(formFields).every(el => el)
+    
+    
+    
+    
+    
+    const handleSubmit =(e) =>{
+    
+     e.preventDefault();
+    
+     setisLoading(true);
+    
+   
+    
+    if(formFields.email===""){
+      context.openalertbox("error","Please enter emailId")       
+    return false
+    }
+    
+    if(formFields.password===""){
+      context.openalertbox("error","Please enter password")       
+    return false
+    }
+    
+    try {
+      postData("/api/user/login",formFields).then((response)=>{
+        console.log(response)
+    
+        if(!response.error){
+            context.openalertbox("success",response.message)       
+            localStorage.setItem("userEmail",formFields.email)
+            setformFields(
+              {
+                
+                email:"",
+                password:""
+              }
+            )
+            history("/verify")
+              // Optionally redirect to login page
+              // navigate('/login');
+            } else {
+              context.openalertbox("error",response?.message);
+              setisLoading(false)
+    
+            }
+          })
+        } catch(error) {
+          context.openalertbox("error", error?.message || "Registration failed!");
+          setisLoading(false);
+        }
+    }
+
+
+
+
+ 
 
   return (
     <>
-    <section className='section py-10'>
+    <section className='section p-9'>
         <div className="container ">
-            <div className="card shadow-md w-[500px]  m-auto rounded-md bg-white p-5 px-10">
-                <h3 className='text-center text-[18px] text-black font-[600]'>Login to your account</h3>
-                <form className="form w-full ">
+            <div className="card shadow-md w-[500px]  m-auto rounded-md bg-white ">
+              <div className='p-6'>
+                <h3 className='text-center text-[22px] text-black font-[600]'>Login to your account</h3>
+                <form className="form w-full " onSubmit={handleSubmit}>
+                    
                     <div className="form-group w-full pt-5">
-      <TextField id="email" label="Email Id *" variant="outlined" className='w-full mb-5' name='name' />
+      <TextField id="email"  
+      name='email'
+      value={formFields.email}
+      disabled={isLoading===true ? true :false} 
+      label="Email Id *" variant="outlined" 
+      className='w-full mb-5'
+      onChange={onchangeInput} 
+       />
                     </div> 
+                    
                      <div className="form-group w-full pt-5 relative mb-4">
-      <TextField type={ispasswordshow===false ? 'password' : 'text'} label="Password *" variant="outlined" className='w-full mb-5' name='password' />
+      <TextField type={ispasswordshow===false ? 'password' : 'text'} 
+      label="Password *" 
+      variant="outlined" className='w-full mb-5'
+      name='password' 
+      value={formFields.password}
+      disabled={isLoading===true ? true :false}
+      onChange={onchangeInput} 
+       />
                                    <Button className='!absolute top-[30px] right-[5px] z-50 !w-[35px] !h-[35px] !min-w-[35px] !rounded-full !text-black' onClick={()=>setispasswordshow(!ispasswordshow)}>
 
                           {
@@ -55,8 +144,16 @@ context.openalertbox("success","OTP Send");
 </div>
 
                     <div className="flex items-center w-full mt-5 mb-3">
-                      <Button className='btn-org btn-lg w-full'>Login</Button>
+                      <Button type='submit'  className='btn-org btn-lg w-full flex gap-3'>
+                        
+                        {
+                          isLoading === true ?   <CircularProgress color="inherit" />
+                          :
+                          ' Login'
+                        }
+                        </Button>
                     </div>
+
 
                     <p >
                       Not Registered? <Link className='link font-[500] text-[14px] text-primary ' to="/register">Sign Up</Link>
@@ -71,6 +168,7 @@ context.openalertbox("success","OTP Send");
 
 
     </form>
+            </div>
             </div>
         </div>
     </section>

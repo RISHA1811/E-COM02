@@ -76,7 +76,8 @@ const context= useContext(Mycontext);
         <div className='header py-4  border-b-[5px] border-gray-250'>
           <div className="container flex items-center justify-between">
             <div className="col1 w-[25%]">
-              <Link to={"/"}><img src="/logo34.png" height={100} width={100}/></Link> 
+              <Link to={"/"}>  <img src="https://ecme-react.themenate.net/img/logo/logo-light-full.png" className='w-[160px] px-2' />
+</Link> 
             </div>
             <div className="col2 w-[40%]">
               <Search />
