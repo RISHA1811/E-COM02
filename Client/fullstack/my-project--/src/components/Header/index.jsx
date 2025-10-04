@@ -19,6 +19,7 @@ import Avatar from '@mui/material/Avatar';
 import { PiHandbagSimpleBold } from "react-icons/pi";
 import { IoHeart } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
+import { fetchDataFromApi} from '../../utils/api';
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -34,8 +35,24 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 
  const Header = () => {
-  const context2=useContext(Mycontext);
 const context= useContext(Mycontext);
+const context2= useContext(Mycontext);
+
+const logout =()=>{
+  setAnchorEl(null);
+  fetchDataFromApi(`/api/user/logout`,{withCredentials : true}).then((res)=>{
+
+if(res?.error === false) {
+    context.setislogin(false);
+    localStorage.removeItem("accesstoken");
+    localStorage.removeItem("refreshtoken");
+
+}
+  })
+}
+
+  
+
 
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -101,8 +118,8 @@ const context= useContext(Mycontext);
                 <Button className='!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !bg-[#f1f1f1]'><FaRegUser  className='text-[16px] text-[rgba(0,0,0,0.7)]'/></Button>
 
                 <div className="info uppercase">
-                  <h4 className='text-[14px] text-[rgba(0,0,0,0.6)] font-[500]'>Rishabh Jha</h4>
-                  <span className='text-[13px] flex font-[400] text-left text-[rgba(0,0,0,0.6)] justify-start'>rj@2198132</span>
+                  <h4 className='text-[14px] text-[rgba(0,0,0,0.6)] font-[500]'>{localStorage.getItem("name")}</h4>
+                  <span className='text-[13px] flex font-[400] text-left text-[rgba(0,0,0,0.6)] justify-start'>{localStorage.getItem("userEmail")}</span>
 
                 </div>
                </Button>
@@ -164,11 +181,11 @@ const context= useContext(Mycontext);
                 </Link>
 
 
-                <Link to="/Myout">
-        <MenuItem onClick={handleClose} className='flex gap-2 !py-2'>
+                
+        <MenuItem onClick={logout} className='flex gap-2 !py-2'>
           <IoIosLogOut  className='text-[18px]'/> <span className=' text-[14px] '> Logout </span> 
         </MenuItem>
-                </Link>
+                
 
         
        

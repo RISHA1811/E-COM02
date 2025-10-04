@@ -25,9 +25,34 @@ const Login = () => {
     const history = useNavigate();
     
 
+
+
  const forgotpassword = ()=>{
-context.openalertbox("success","OTP Send");    
-history("/verify");
+
+      if(formFields.email===""){
+        context.openalertbox("error","Please enter email Id")       
+        return false;
+}
+else {   
+  context.openalertbox("success",`OTP Send to ${formFields.email}`);    
+  localStorage.setItem("userEmail",formFields.email);
+  localStorage.setItem("actionType",'forgot-password');
+
+
+  postData("/api/user/forgot-password", {
+    email:formFields.email,
+  }).then((response) => {
+    if(response?.error === false) {
+      context.openalertbox("Success", response?.message);
+      history("/verify")
+    }
+    // else{
+    //   context.openalertbox("error", res?.message);
+    // }
+  })
+}
+
+
   }
 
 
@@ -67,20 +92,24 @@ history("/verify");
     }
     
     try {
-      postData("/api/user/login",formFields).then((response)=>{
+      postData("/api/user/login",formFields,{withCredentials : true}).then((response)=>{
         console.log(response)
     
-        if(!response.error){
-            context.openalertbox("success",response.message)       
+        if(response.error !== true){
+            context.openalertbox("success","Login Successfully")       
             localStorage.setItem("userEmail",formFields.email)
             setformFields(
               {
                 
                 email:"",
                 password:""
-              }
-            )
-            history("/verify")
+              })
+
+            localStorage.setItem("accesstoken",response?.data?.accesstoken);
+            localStorage.setItem("refreshtoken",response?.data?.refreshtoken);
+
+            context.setislogin(true);
+            history("/")
               // Optionally redirect to login page
               // navigate('/login');
             } else {
@@ -90,7 +119,7 @@ history("/verify");
             }
           })
         } catch(error) {
-          context.openalertbox("error", error?.message || "Registration failed!");
+          context.openalertbox("error", error?.message || "Login failed!");
           setisLoading(false);
         }
     }
@@ -144,7 +173,7 @@ history("/verify");
 </div>
 
                     <div className="flex items-center w-full mt-5 mb-3">
-                      <Button type='submit'  className='btn-org btn-lg w-full flex gap-3'>
+                      <Button type='submit' disabled={!validevalue}  className='btn-org btn-lg w-full flex gap-3'>
                         
                         {
                           isLoading === true ?   <CircularProgress color="inherit" />

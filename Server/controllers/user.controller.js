@@ -86,7 +86,7 @@ console.log('Email sent:', verifyEmail);
 
 // create a token for the user
 const token = jwt.sign(
-    { email: user.email, id: user._id},
+    { email: user.email, id: user._id, name:user.name},
     process.env.JSON_WEB_TOKEN_SECRET_KEY
 );
 
@@ -111,6 +111,8 @@ return response.status(200).json({
     }
 }
 
+
+// verify email
 export async function verifyEmailController(request,response) {
     try {
         const{email, otp} = request.body;
@@ -206,7 +208,7 @@ const cookiesOption = {
 response.cookie('accessToken',accesstoken,cookiesOption)
 response.cookie('refreshToken',refreshtoken,cookiesOption)
 
-return response.json({
+return response.status(200).json({
     message : "Login successfully",
     error : false,
     success : true,
@@ -503,11 +505,11 @@ export async function verifyForgotPasswordOtp(request,response){
    try {
 
 
- const {email,otp}=request.body;
+ const {email,otp}= request.body;
     const user =  await UserModel.findOne({email:email});
     if(!user){
         return response.status(400).json({
-            message:"User not found",
+            message:"Email not found",
             error:true,
             success:false
         })
@@ -520,13 +522,6 @@ if(!email || !otp){
         success:false
     })
 }
-
-
-
-
-
-
-
 if(otp !== user.otp){
     return response.status(400).json({
         message:"Invalid OTP",
@@ -545,22 +540,15 @@ return response.status(400).json({
     success:false
 })
 }
-
 user.otp = "";
 user.otpExpires = "";
 await user.save();
-
-
-
-      return response.status(400).json({
+return response.status(200).json({
         message:"OTP Verified Successfully",
         error:false,
         success:true
     })
-
-
-    
-   } catch (error) {
+} catch (error) {
     return response.status(500).json({
         message:error.message || error,
         error:true,
@@ -579,24 +567,24 @@ export async function resetpassword(request,response){
         const {email, newPassword, confirmPassword} = request.body;
 
         
-if(!email || !newPassword || !confirmPassword){
+if(  !newPassword || !confirmPassword){
     return response.status(400).json({
-        message:"Provide required field email and newpassword , newpassword",
-        error:true,
-        success:false
+        message:"Provide required field email and newpassword , confirmpassword",
+        error:false,
+        success:true
     })
 
 }
 
 const user = await UserModel.findOne({email:email});
 
-if(!user){
-    return response.status(400).json({
-        message:"Email Not Found",
-        error: true,
-        success:false
-    })
-}
+// if(!user){
+//     return response.status(400).json({
+//         message:"Email Not Found",
+//         error: true,
+//         success:false
+//     })
+// }
 
 
 if(newPassword !== confirmPassword){

@@ -7,7 +7,7 @@ const  userRouter = Router()
 userRouter.post('/register',registerusercontroller);
 userRouter.post('/verifyEmail',verifyEmailController);
 userRouter.post('/login',loginUserController);
-userRouter.get('/logout',auth,logoutController);
+userRouter.get('/logout',logoutController);
 userRouter.put('/user-avatar',auth,upload.array('avatar'),userAvatarController);
 userRouter.delete('/deleteImage',auth,removeImageFromCloudinary);
 userRouter.put('/:id',auth,updateUserDetails);
@@ -15,7 +15,7 @@ userRouter.post('/forgot-password',forgetpasswordcontroller);
 userRouter.post('/verify-forgot-password-otp',verifyForgotPasswordOtp);
 userRouter.post('/reset-password',resetpassword);
 userRouter.post('/refresh-token',refreshToken);
-userRouter.get('/user-details',auth,userDetails);
+userRouter.get('/user-details',userDetails);
 
 
 export default userRouter;

@@ -21,26 +21,24 @@ import { Mycontext } from '../../App';
               
       <span className='discount flex items-center absolute top-[10px] left-[10px] z-50 text-primary rounded-md font-[900] bg-white py-0.5 px-2'>20%</span>
 
-
-<div className="action absolute top-[10px] right-[0px]  z-50 flex items-center   flex-col  w-[50px] transition-all ">
-             <Tooltip title="Wishlist" placement="bottom-start">
+<div className=" action icons absolute right-[0px] top-[0px] opacity-1 z-[50]  w-[50px] transition-all flex items-center flex-col  ">
+ <Tooltip title="Wishlist" placement="bottom-start">
              <Button>
-              < FaRegHeart className=' !w-[33px] !h-[33px] !min-w-[35px] rounded-full bg-white py-0.5 px-2 hover:bg-primary hover:text-white '/> </Button>
+              < FaRegHeart className=' !w-[33px] !h-[33px] !min-w-[35px] rounded-full bg-white hover:bg-[rgba(254, 251, 251, 0.1)] hover:text-red-500 py-0.5 px-2  '/> </Button>
               </Tooltip>
                             <Tooltip title="Compare" placement="bottom-start">
 
             <Button>
-              <IoIosGitCompare className=' !w-[33px] !h-[33px] !min-w-[35px] rounded-full bg-white py-0.5 px-2 hover:bg-primary hover:text-white '/> </Button>
+              <IoIosGitCompare className=' !w-[33px] !h-[33px] !min-w-[35px] rounded-full bg-white py-0.5 px-2  '/> </Button>
               </Tooltip>
 
               <Tooltip title="Zoom" placement="bottom-start">
                <Button>
-              <MdZoomOutMap className=' !w-[33px] !h-[33px] !min-w-[35px] rounded-full bg-white py-0.5 px-2 hover:bg-primary hover:text-white  ' onClick={()=>context.setOpen(true)}/>
+              <MdZoomOutMap className=' !w-[33px] !h-[33px] !min-w-[35px] rounded-full bg-white py-0.5 px-2  ' onClick={()=>context.setOpen(true)}/>
             </Button>
             </Tooltip>
+</div>
 
-            
-          </div>
       </div>
 
       

@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Route,Routes } from "react-router-dom";
 import './App.css';
-import Header from './components/header';
+import Header from './components/Header';
 import Rating from '@mui/material/Rating';
 import Home from './pages/home';
 import Search from './components/search';
@@ -31,6 +31,8 @@ import Checkout from './pages/Checkout';
 import Myaccount from './components/Myaccount';
 import Mylist from './pages/Mylist';
 import Myorder from './pages/Myorder';
+import { useEffect } from 'react';
+import { fetchDataFromApi } from './utils/api';
 
 
 // const alertBox = (msg, type) =>{
@@ -54,7 +56,7 @@ const [open, setOpen] = useState(false);
 const [closecartpanel,setclosecartpanel] =useState(false);
 
 const[islogin , setislogin] =useState(false);
-const apiUrl = import.meta.env.VITE_API_URL;
+const [userData, setuserData] = useState(null);
 
   
 const cartclose = () => {
@@ -66,6 +68,23 @@ const cartclose = () => {
  const togglecartpanel = (newOpen) => () => {
     setOpencartpanel(newOpen);
   };
+
+
+useEffect(()=>{
+ const token = localStorage.getItem('accesstoken');
+ if(token!==undefined && token!==null && token !==""){
+  setislogin(true);
+
+fetchDataFromApi(`/api/user/user-details`).then((res)=>{
+  console.log(res);
+  setuserData(res.data);
+
+})
+
+ }else{
+  setislogin(false);
+ }
+},[islogin])
 
 
 
@@ -87,6 +106,8 @@ opencartpanel,
 openalertbox,
 islogin,
 setislogin,
+setuserData,
+userData
   };
 
   return (

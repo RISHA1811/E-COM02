@@ -2,15 +2,20 @@ import mongoose from "mongoose";
 import dotenv from "dotenv"
 dotenv.config()
 
-if(!process.env.MONGODB_URL){
-    throw new Error(
-        "Please provide MONGODB_URL In The .env File"
-    )
-}
+// Temporarily make MongoDB optional for testing
+// if(!process.env.MONGODB_URL){
+//     throw new Error(
+//         "Please provide MONGODB_URL In The .env File"
+//     )
+// }
 
 async function connectDB() {
     try {
         const mongoURL = process.env.MONGODB_URL;
+        if (!mongoURL) {
+            console.log('MongoDB URL not provided, skipping database connection');
+            return;
+        }
         console.log('Attempting to connect to MongoDB...');
         await mongoose.connect(mongoURL, {
             useNewUrlParser: true,
@@ -27,7 +32,7 @@ async function connectDB() {
         });
     } catch (error) {
         console.error('MongoDB connection error:', error);
-        process.exit(1);
+        console.log('Continuing without database connection...');
     }
 }
 

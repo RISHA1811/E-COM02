@@ -51,26 +51,33 @@ const handleSubmit =(e) =>{
  setisLoading(true);
 
 if(formFields.name===""){
-  context.openalertbox("error","Please enter Full Name")       
+  context.openalertbox({
+    type:"error",
+    msg:"Please enter name"})       
 return false
 }
 
 if(formFields.email===""){
-  context.openalertbox("error","Please enter emailId")       
+  context.openalertbox({
+    type:"error",
+    msg:"Please enter emailId"})       
 return false
 }
 
 if(formFields.password===""){
-  context.openalertbox("error","Please enter password")       
+  context.openalertbox({
+    type:"error",
+    msg:"Please enter password"})       
 return false
 }
 
 try {
-  postData("/api/user/register",formFields).then((response)=>{
-    console.log(response)
+  postData("/api/user/register",formFields).then((res)=>{
+    console.log(res)
 
-    if(!response.error){
-        context.openalertbox("success",response.message)       
+    if(!Response.error !== true){
+      setisLoading(false);
+        context.openalertbox("success","Register successfully , Please Verify Your");       
         localStorage.setItem("userEmail",formFields.email)
         setformFields(
           {
@@ -83,7 +90,7 @@ try {
           // Optionally redirect to login page
           // navigate('/login');
         } else {
-          context.openalertbox("error",response?.message);
+          context.openalertbox("error",Response?.message);
           setisLoading(false)
 
         }

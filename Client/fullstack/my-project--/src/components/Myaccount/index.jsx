@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Button from '@mui/material/Button';
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { PiHandbagSimpleBold } from "react-icons/pi";
 import { IoHeart } from "react-icons/io5";
 import { IoIosLogOut } from "react-icons/io";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Accountsidebar from '../Accountsidebar';
+import { Mycontext } from '../../App';
 
 
 const Myaccount = () => {
+
+
+const context = useContext(Mycontext);
+const history = useNavigate();
+useEffect(()=>{
+if(context?.islogin===false){
+setTimeout(()=>{
+history("/");
+
+}, 1000)
+}
+},[context?.islogin])
+
+
+
   return (
     <>
     <section className='py-7 w-full '>
