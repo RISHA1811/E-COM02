@@ -1,0 +1,51 @@
+.categorypanel button{
+    text-transform: capitalize;
+}
+.nav li .submenu{
+    visibility:hidden ;
+    z-index:1000; 
+}
+.nav li:hover .submenu{
+    opacity:1;
+    visibility: inherit;
+}
+nav li .submenu li:hover button{
+    color:#ff5252 !important ;
+}
+
+nav li .submenu li .submenu button{
+    color:rgba(0,0,0,0.8) !important;
+}
+nav li .submenu li .submenu button:hover{
+    color:#ff5252 !important;
+}
+
+
+
+.nav li  .submenu2{
+    visibility:hidden; 
+}
+.nav  li:hover .submenu2{
+    opacity:1;
+    visibility: inherit;
+}
+nav li li .submenu2 li:hover button{
+    color:#ff5252 !important ;
+}
+
+nav li li .submenu2 li .submenu2 button{
+    color:rgba(0,0,0,0.8) !important;
+}
+nav li li .submenu2 li .submenu2 button:hover{
+    color:#ff5252 !important;
+}
+
+.box .box1:hover img{
+    transform: scale(1.2) ;
+}
+.box .box2:hover img{
+    transform: scale(1.2) ;
+}
+.box .box3:hover img{
+    transform: scale(1.2) ;
+}
