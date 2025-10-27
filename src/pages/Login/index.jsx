@@ -44,11 +44,11 @@ else {
   }).then((response) => {
     if(response?.error === false) {
       context.openalertbox("Success", response?.message);
-      history("/verify")
+      history("/Verify")
     }
-    // else{
-    //   context.openalertbox("error", res?.message);
-    // }
+    else{
+      context.openalertbox("error", res?.message);
+    }
   })
 }
 
@@ -140,11 +140,11 @@ else {
                     
                     <div className="form-group w-full pt-5">
       <TextField id="email"  
-      name='email'
-      value={formFields.email}
-      disabled={isLoading===true ? true :false} 
       label="Email Id *" variant="outlined" 
       className='w-full mb-5'
+       name='email'
+      value={formFields.email}
+      disabled={isLoading===true ? true :false} 
       onChange={onchangeInput} 
        />
                     </div> 

@@ -10,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import { Mycontext } from '../../App';
 import CircularProgress from '@mui/material/CircularProgress';
 import { editData } from '../../utils/api.js';
+import { useEffect } from 'react';
 
 const Accountsidebar = () => {
 const [isLoading, setisLoading] = useState(false);
@@ -22,13 +23,19 @@ const context = useContext(Mycontext);
 
 
 
-let  imagesArr = [];
-let uniqueArray = [];
-let selectedImages = [];
+
 
 const formdata = new FormData();
 
+useEffect(()=>{
+    const userAvatar = [];
+    if(context?.userData?.avatar !== "" && context?.userData?.avatar !== undefined){
+        userAvatar.push(context?.userData?.avatar);
+        setPreviews(userAvatar);
+    }
+   }, [context?.userData]   )
 
+   let selectedImages =[]
 const onChangeFile = async (e, apiEndPoint) =>{
     try {
         setPreviews([]);
@@ -96,8 +103,8 @@ const onChangeFile = async (e, apiEndPoint) =>{
                 
             </div>
 
-            <h3 className='mb-2 mt-1'>Rajesh Sharma</h3>
-            <h6 className='text-[14px] font-[400] mb-2'>rihcbchcj@dw.gmail.com</h6>
+            <h3 className='mb-2 mt-1'>{context?.userData?.name}</h3>
+            <h6 className='text-[14px] font-[400] mb-2'>{context?.userData?.email}</h6>
 
         </div>
 

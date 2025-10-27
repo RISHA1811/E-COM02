@@ -28,25 +28,25 @@ if(actionType !== "forgot-password"){
  postData("/api/user/verifyEmail", {
     email:localStorage.getItem("userEmail"),
     otp: otp
-  }).then((res) => {
-    if(res?.error === false) {
-      context.openalertbox("Success", res?.message);
+  }).then((response) => {
+    if(response?.error === false) {
+      context.openalertbox("Success", response?.message);
       localStorage.removeItem("userEmail")
       history("/Login")
     } else {
-      context.openalertbox("error", res?.message);
+      context.openalertbox("error", response?.message);
     }
   }) 
 } else {
   postData("/api/user/verify-forgot-password-otp", {
     email:localStorage.getItem("userEmail"),
     otp: otp
-  }).then((res) => {
-    if(res?.error === false) {
-      context.openalertbox("Success", res?.message);
+  }).then((response) => {
+    if(response?.error === false) {
+      context.openalertbox("Success", response?.message);
       history("/Forgot-Password")
     } else {
-      context.openalertbox("error", res?.message);
+      context.openalertbox("error", response?.message);
     }
   }) 
 }

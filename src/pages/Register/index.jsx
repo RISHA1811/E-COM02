@@ -97,12 +97,12 @@ return false
                 <form className="form w-full p-5" onSubmit={handleSubmit}>
                    <div className="form-group w-full pt-5">
       <TextField id="fullname"
-      name='name'
-      value={formFields.name}
-      disabled={isLoading===true ? true :false}
       label="Full Name *" 
       variant="outlined" 
       className='w-full mb-5'
+       name='name'
+      value={formFields.name}
+      disabled={isLoading===true ? true :false}
       onChange={onchangeInput}
       />
 

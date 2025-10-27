@@ -83,6 +83,8 @@ if(res?.response?.data?.error===true){
     localStorage.removeItem("accesstoken");
     localStorage.removeItem("refreshtoken");
     openalertbox("error","Your session has been expired, please login again");
+    window.location.href="/Login";
+    
     setislogin(false);
   }
 }
