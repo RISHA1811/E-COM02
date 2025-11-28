@@ -33,6 +33,7 @@ import Mylist from './pages/Mylist';
 import Myorder from './pages/Myorder';
 import { useEffect } from 'react';
 import { fetchDataFromApi } from './utils/api.js';
+import Address from './components/Myaccount/address.jsx';
 
 
 // const alertBox = (msg, type) =>{
@@ -78,7 +79,7 @@ useEffect(()=>{
 fetchDataFromApi(`/api/user/user-details?token=${token}`).then((response)=>{
   console.log(response);
   setuserData(response.data);
-if(res?.response?.data?.error===true){
+if(response?.data?.error===true){
   if(res?.response?.data?.message==="You have not login"){
     localStorage.removeItem("accesstoken");
     localStorage.removeItem("refreshtoken");
@@ -138,6 +139,7 @@ setuserData
           <Route path={"/Myaccount"} exact={true} element={<Myaccount/>}/>
           <Route path={"/Mylist"} exact={true} element={<Mylist/>}/>
           <Route path={"/Myorder"} exact={true} element={<Myorder/>}/>
+          <Route path={"/address"} exact={true} element={<Address/>}/>
 
       </Routes>
       <Footer/>

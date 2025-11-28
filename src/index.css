@@ -3,20 +3,24 @@
 @tailwind utilities;
 
 .container {
-  width: 100% ;
-
-margin: auto;
-
+  width: 100% !important;
+  /* margin: auto !important; */
+  align-content: center !important;
+  max-width: 100% !important;
+padding:7px !important
 }
 
-
-body{
-     font-family: "Roboto Slab", serif;
-    font-optical-sizing: auto;
-    color:rgba(0,0,0,0.9);
-    padding:18px !important;
-   
+body {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  color: rgba(0,0,0,0.9);
+  background-color: rgb(251, 250, 250);
+  width: 100%;              /* ✅ fixed */
+  margin: 0;                /* ✅ remove default margins */
+  padding: 0;
+  overflow-x: hidden;       /* ✅ prevent horizontal scroll */
 }
+
 
 ::-webkit-scrollbar{width:8px !important; height:8px !important; border-radius: 30% !important;}
 ::-webkit-scrollbar-thumb{
@@ -343,3 +347,21 @@ button .MuiCircularProgress-root{
     width: 30px !important;
     height: 30px !important;
 }
+
+.react-international-phone-input{
+    width:90% !important;
+}
+
+.react-international-phone-country-selector-button{
+    width: 55px !important;
+}
+.react-international-phone-input-container{
+    border:1px solid rgba(0,0,0,0.1) !important;
+    border-radius: 20% !important;
+}
+.MuiDialog-paper{
+    max-width:800px !important;
+    width:700px !important;
+}
+
+

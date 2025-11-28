@@ -11,6 +11,7 @@ import { Mycontext } from '../../App';
 import CircularProgress from '@mui/material/CircularProgress';
 import { editData } from '../../utils/api.js';
 import { useEffect } from 'react';
+import { LuMapPinCheck } from "react-icons/lu";
 
 const Accountsidebar = () => {
 const [isLoading, setisLoading] = useState(false);
@@ -116,22 +117,32 @@ const onChangeFile = async (e, apiEndPoint) =>{
 </NavLink>
     </li>
 
-     <li className='w-full '>
-                <NavLink to="/Mylist">
+
+  <li className='w-full '  >
+
+        <NavLink to="/address"  exact={true}  activeClassName="isActive">
+<Button className='flex items-center !text-left !justify-start !py-2 !px-5 gap-2 !w-full !rounded-none !text-[rgba(0,0,0,0.8)] '><LuMapPinCheck className='text-[18px]'/>Address</Button>
+</NavLink>
+    </li>
+
+
+
+     <li className='w-full'>
+                <NavLink to="/Mylist" exact={true}  activeClassName="isActive">
 
 <Button className='flex items-center !text-left !justify-start !py-2 !px-5 gap-2 !w-full !rounded-none !text-[rgba(0,0,0,0.8)]'><PiHandbagSimpleBold className='text-[18px]'/>My List</Button>
    </NavLink>
     </li>
 
-     <li className='w-full '>
-                <NavLink to="/Myorder">
+     <li className='w-full'>
+                <NavLink to="/Myorder" exact={true}  activeClassName="isActive">
 <Button className='flex items-center !text-left !justify-start !py-2 !px-5 gap-2 !w-full !rounded-none !text-[rgba(0,0,0,0.8)]'><IoHeart className='text-[18px]'/>My Orders</Button>
     </NavLink>
 
     </li>
 
-     <li className='w-full '>
-                <NavLink to="/Myout">
+     <li className='w-full'>
+                <NavLink to="/Myout" exact={true}  activeClassName="isActive">
 <Button className='flex items-center !text-left !justify-start !py-2 !px-5 gap-2 !w-full !rounded-none !text-[rgba(0,0,0,0.8)]'><IoIosLogOut className='text-[18px]'/>Logout</Button>
     </NavLink>
 

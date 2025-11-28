@@ -67,7 +67,7 @@ import Newslider from '../../components/Newslider/newslider';
         
         <CatSlider/>
 
-        <section className='bg-white py-7'>
+        <section className='bg-white py-7  '>
 
           <div className="container ">
             <div className="flex items-center justify-between">
@@ -112,8 +112,8 @@ import Newslider from '../../components/Newslider/newslider';
 
 
 
-        <section className='py-8 pt-2 bg-white'>
-          <div className="container  ">
+        <section className='py-8 pt-2 bg-white w-full px-4 '>
+          <div className="container  w-full">
             <div className="materials flex items-center justify-between flex-col">
             <div className="freeshipping w-full bg-gray-100 py-4 border border-[#ff5252] flex items-center justify-between rounded-lg px-7 ">
               <div className="col1 flex items-center justify-between gap-3 ">
@@ -140,7 +140,7 @@ import Newslider from '../../components/Newslider/newslider';
         </section>
 
 
-        <section className='py-4 pt-0  px-4 w-full '>
+        <section className='py-4 pt-3  px-4 w-full '>
           <div className="container ">
             <div className="flex items-center justify-between">
               <div className="leftsec">
@@ -182,10 +182,10 @@ import Newslider from '../../components/Newslider/newslider';
 
 
         <section className='py-4 pt-0  px-4 w-full '>
-          <div className="container ">
-            <div className="flex items-center justify-between">
-              <div className="leftsec">
-                <h2 className='text-[25px] font-[600]'>
+          <div className="container  ">
+            <div className="flex items-center justify-between ">
+              <div className="leftsec ">
+                <h2 className='text-[25px] font-[600] '>
                   Featured Products
                 </h2>
                 {/* <p className='text-[15px] font-[400]'>

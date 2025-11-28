@@ -6,13 +6,13 @@ import { BsFillBagCheckFill } from "react-icons/bs";
 const Checkout = () => {
   return (
     <>
-    <section className='py-10 relative'>
-<div className="container flex items-center gap-3">
-    <div className="leftcol w-[65%]">
-        <div className="card bg-white shadow-md rounded-md w-full text-left">
-            <h1>BILLING DETAILS</h1>
+    <section className='py-10 relative '>
+<div className="container flex items-center gap-3 ">
+    <div className="leftcol w-[60%] ">
+        <div className="card bg-white shadow-md rounded-md w-full text-left ">
+            <h1 className='pt-4 pl-4'>BILLING DETAILS</h1>
 
-            <form className='w-full mt-5'>
+            <form className='w-full mt-5 p-3'>
                 <div className="flex items-center gap-5 pb-5">
                     <div className="col w-[50%]">
 <TextField className='w-full bg-gray-100' label="Full Name *" variant="outlined" size='small' />
@@ -89,9 +89,9 @@ const Checkout = () => {
         </div>
     </div>
 
-    <div className="rightcol w-[30%]  absolute top-[30px] right-[10px] ml-4">
-        <div className="card shadow-md bg-white  rounded-md !text-top">
-            <h2 className='border-b border-[rgba(0,0,0,0.1)] text-left !mb-2 font-[600]'>YOUR ORDER</h2>
+    <div className="rightcol w-[35%]  absolute top-[30px] right-[10px] ml-4 ">
+        <div className="card shadow-md bg-white  rounded-md !text-top ">
+            <h2 className='border-b border-[rgba(0,0,0,0.1)] text-left !mb-2 font-[600]  '>YOUR ORDER</h2>
 
             <div className="flex items-center justify-between py-3 px-2 border-b border-[rgba(0,0,0,0.1)]">
                 <span className='text-[14px] font-[600]'>Product</span>
@@ -99,9 +99,9 @@ const Checkout = () => {
             </div>
            
 
-<div className="scroll mb-5 max-h-[250px] overflow-y-scroll overfloow-x-hidden pr-5 ">
+<div className="scroll mb-5 max-h-[250px] overflow-y-scroll overfloow-x-hidden p-3 ">
 
-           <div className="flex items-center justify-between border-b border-[rgba(0,0,0,0.1)]">
+           <div className="flex items-center justify-between border-b border-[rgba(0,0,0,0.1)] ">
             <div className="part1 flex items-center gap-3">
                 <div className="img w-[50px] h-[50px] object-cover py-2 overflow-hidden rounded-md group cursor-pointer">
                     <img src="https://api.spicezgold.com/download/file_1734527074321_ksc-khatushyam-collection-red-pu-for-women-handheld-bag-product-images-rvvxdnkjfy-0-202405290001.webp" className='w-full group-hover:scale-105' />

@@ -29,18 +29,25 @@ if(response.ok) {
 // get request now 
 export const fetchDataFromApi = async (url) => {
   try {
-    const {data} = await axios.get(apiUrl + url, {
-        'Authorization' : `Bearer ${localStorage.getItem("accesstoken")}`,
-        'Content-Type' : 'application/json',
-      })
+
+const params={
+   headers: {
+        Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+        "Content-Type": "application/json",
+      },
+
+}
+console.log(localStorage.getItem("accesstoken"));
+
+
+
+    const { data } = await axios.get(apiUrl + url,params );
     return data;
   } catch (error) {
-    console.log(error);
-    return error;
+    console.error("Error in fetchDataFromApi:", error);
+    throw error;
   }
-}
-
-
+};
 
 // put request now 
 
@@ -55,4 +62,19 @@ const {res} = await axios.put(apiUrl + url, updatedData, params)
 return res;
 
 
+}
+
+
+// delete api 
+
+export const deleteData = async (url) => {
+   const params={
+    headers:{
+      'Authorization' : `Bearer ${localStorage.getItem("accesstoken")}`,
+        'Content-Type' : 'multipart/form-data',
+    },
+  }
+
+const { res } =  await axios.delete(apiUrl + url,params)
+return res;
 }
