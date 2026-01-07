@@ -37,8 +37,8 @@ const Productzoom = () => {
 
         <SwiperSlide>
 
-            <div className={`items rounded-md overflow-hidden cursor-pointer group ${slideindex===0 ? 'opacity-1' : 'opacity-30'}`} onClick={()=> goto(0)}>
-                <img src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/29-home_default/hummingbird-printed-t-shirt.jpg" className='w-full transition-all group-hover:scale-105'/>
+            <div className={`items h-[120px] rounded-md overflow-hidden cursor-pointer group ${slideindex===0 ? 'opacity-1' : 'opacity-30'}`} onClick={()=> goto(0)}>
+                <img src="/w26.jpeg" className='w-full transition-all group-hover:scale-105'/>
                
             </div>
         </SwiperSlide>
@@ -47,32 +47,40 @@ const Productzoom = () => {
 
         <SwiperSlide>
 
-            <div className={`items rounded-md overflow-hidden cursor-pointer group ${slideindex===1 ? 'opacity-1' : 'opacity-30'}`} onClick={()=> goto(1)}>
-                  <img src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/25-home_default/hummingbird-printed-t-shirt.jpg" className='w-full transition-all group-hover:scale-105'  />
+            <div className={`items h-[120px] rounded-md overflow-hidden cursor-pointer group ${slideindex===1 ? 'opacity-1' : 'opacity-30'}`} onClick={()=> goto(1)}>
+                  <img src=
+        "/w23.jpeg"                 
+         className='w-full transition-all group-hover:scale-105'  />
                   </div>
                 
         </SwiperSlide>
 
         <SwiperSlide>
 
-            <div className={`items rounded-md overflow-hidden cursor-pointer group ${slideindex===2 ? 'opacity-1' : 'opacity-30'}`} onClick={()=> goto(2)}>
+            <div className={`items h-[120px] rounded-md overflow-hidden cursor-pointer group ${slideindex===2 ? 'opacity-1' : 'opacity-30'}`} onClick={()=> goto(2)}>
                
-                <img src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/24-home_default/hummingbird-printed-t-shirt.jpg"  className='w-full transition-all group-hover:scale-105'/>
+                <img src=
+        "/w25.jpeg"                 
+                className='w-full transition-all group-hover:scale-105'/>
                  </div>
                  </SwiperSlide>
 
                   <SwiperSlide>
 
-            <div className={`items rounded-md overflow-hidden cursor-pointer group ${slideindex===3 ? 'opacity-1': 'opacity-30'}`} onClick={()=> goto(3)}>
-                <img src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/27-home_default/hummingbird-printed-t-shirt.jpg"  className='w-full transition-all group-hover:scale-105'/>
+            <div className={`items h-[120px] rounded-md overflow-hidden cursor-pointer group ${slideindex===3 ? 'opacity-1': 'opacity-30'}`} onClick={()=> goto(3)}>
+                <img src=
+        "/w24.jpeg"                 
+                className='w-full transition-all group-hover:scale-105'/>
                 </div>
 </SwiperSlide>
 
 
    <SwiperSlide>
 
-            <div className={`items rounded-md overflow-hidden cursor-pointer group ${slideindex===4 ? 'opacity-1' : 'opacity-30'}`} onClick={()=> goto(4)}>
-                <img src="https://demos.codezeel.com/prestashop/PRS21/PRS210502/28-home_default/hummingbird-printed-t-shirt.jpg"  className='w-full transition-all group-hover:scale-105'/>
+            <div className={`items h-[120px] rounded-md overflow-hidden cursor-pointer group ${slideindex===4 ? 'opacity-1' : 'opacity-30'}`} onClick={()=> goto(4)}>
+                <img src=
+        " https://api.spicezgold.com/download/file_1734527074321_ksc-khatushyam-collection-red-pu-for-women-handheld-bag-product-images-rvvxdnkjfy-0-202405290001.webp"                 
+                className='w-full transition-all group-hover:scale-105'/>
                 </div>
 </SwiperSlide>
 
@@ -89,7 +97,7 @@ const Productzoom = () => {
      </Swiper>
 
         </div>
-        <div className="zoom w-[85%] h-[500px] overflow-hidden rounded-md">
+        <div className="zoom w-[85%] pl-4 h-[500px] overflow-hidden rounded-md">
              <Swiper 
              ref={zoomsliderbig}
             slidesPerView={1}
@@ -100,31 +108,37 @@ const Productzoom = () => {
 
         <SwiperSlide>
 
-                            <InnerImageZoom zoomType='hover' zoomScale={1} src={'https://demos.codezeel.com/prestashop/PRS21/PRS210502/29-large_default/hummingbird-printed-t-shirt.jpg'}  />
+                            <InnerImageZoom zoomType='hover' zoomScale={1.3} src={"/w26.jpeg"}  />
 
         </SwiperSlide>
 
         <SwiperSlide>
 
-                            <InnerImageZoom zoomType='hover' zoomScale={1} src={'https://demos.codezeel.com/prestashop/PRS21/PRS210502/25-medium_default/hummingbird-printed-t-shirt.jpg'} />
+                            <InnerImageZoom zoomType='hover' zoomScale={1.3} src={"/w23.jpeg"} />
 
         </SwiperSlide>
 
         <SwiperSlide>
 
-                            <InnerImageZoom zoomType='hover' zoomScale={1} src={'https://demos.codezeel.com/prestashop/PRS21/PRS210502/24-medium_default/hummingbird-printed-t-shirt.jpg'} />
+                            <InnerImageZoom zoomType='hover' zoomScale={1.3} src={
+        "/w25.jpeg"                 
+                                } />
 
         </SwiperSlide>
 
         <SwiperSlide>
 
-                            <InnerImageZoom zoomType='hover' zoomScale={1} src={'https://demos.codezeel.com/prestashop/PRS21/PRS210502/27-medium_default/hummingbird-printed-t-shirt.jpg'} />
+                            <InnerImageZoom zoomType='hover' zoomScale={1.3} src={
+        "/w24.jpeg"                 
+                                } />
 
         </SwiperSlide>
 
          <SwiperSlide>
 
-                            <InnerImageZoom zoomType='hover' zoomScale={1} src={'https://demos.codezeel.com/prestashop/PRS21/PRS210502/28-medium_default/hummingbird-printed-t-shirt.jpg'} />
+                            <InnerImageZoom zoomType='hover' zoomScale={1.3} src={
+                                'https://api.spicezgold.com/download/file_1734527074321_ksc-khatushyam-collection-red-pu-for-women-handheld-bag-product-images-rvvxdnkjfy-0-202405290001.webp'
+                                } />
 
         </SwiperSlide>
 
